@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata: 
+   name: "myrc1"
+
+spec:
+  replicas: 4
+  selector:
+     dc: "IN"
+     team: "t1"
+  template:
+ 
+    metadata: 
+     name: "mypod2"
+     labels:
+      dc: "IN"
+      team: "t1"
+ 
+    spec:
+       containers: 
+         - name: "c3"
+           image: "httpd"
